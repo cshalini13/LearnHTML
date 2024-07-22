@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricket</title>
+  <style>
+    .container {
+      padding: 50px 100px;
+      margin: 200px 400px;
+      background-color: cornsilk;
+      width: 30%;
+      border: 2px solid black;
+      border-radius: 50px;
+    }
+    #heading-container {
+      display: flex;
+    }
+    #game-image {
+      width: 20%;
+    }
+    .heading {
+      text-align: center;
+      padding: 10px;
+    }
+    #btn-container {
+      display: flex;
+      padding: 10px 40px;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn-option {
+      padding: 10px 20px;
+      margin: 20px;
+      background-color: rgb(245, 230, 170);
+      border: 2px solid black;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+    .btn-option:hover{
+      border: 2px solid rgb(255, 0, 76);
+    }
+    #display-result {
+      color: rgb(255, 0, 76);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="heading-container">
+      <img id="game-image" src="images/cricket.jpg" alt="">
+      <h1 class="heading">Bat Ball Stump Game</h1>
+    </div>
+    <div id="btn-container">
+      <button class="btn-option" onclick="let userVal = 'Bat'; checkWinner(userVal);">Bat</button>
+      <button class="btn-option" onclick="userVal = 'Ball'; checkWinner(userVal);">Ball</button>
+      <button class="btn-option" onclick="userVal = 'Stump'; checkWinner(userVal);">Stump</button>
+    </div> 
+    <h2 id="display-result"></h2>
+    
+  </div>
+  <script>
+    /**
+     * Bat and Ball -> Bat
+     * Bat and Stump -> Stump
+     * Ball and Stump -> Ball
+    */
+   function checkWinner(userVal){
+    let compVal = '';
+    let randomVal = Math.random() * 3;
+    if(randomVal <= 1 && randomVal > 0){
+      compVal = 'Bat';
+    }else if(randomVal <= 2 && randomVal > 1){
+      compVal = 'Ball';
+    }else{
+      compVal = 'Stump';
+    }
+    if((userVal == 'Bat' && compVal == 'Ball') || (userVal == 'Stump' && compVal == 'Bat') || (userVal == 'Ball' && compVal == 'Stump'))
+        document.querySelector('#display-result').innerText = `Computer's choice : ${compVal} \n You have won!!`;
+    else if(userVal == compVal)
+        document.querySelector('#display-result').innerText = `Computer's choice : ${compVal} \n It's a tie!!`;
+    else
+        document.querySelector('#display-result').innerText = `Computer's choice : ${compVal} \n Sorry! You lost!!`;
+
+   }
+    
+
+
+
+      
+
+
+  </script>
+
+</body>
+</html>

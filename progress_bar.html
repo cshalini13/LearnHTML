@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+  <style>
+    h1{
+      position: relative;
+      top: 300px;
+      left: 50px;
+      color: chartreuse;
+    }
+    #progress-container {
+      width: 1000px;
+      height: 25px;
+      background-color: white;
+      border: 2px solid black;
+      border-radius: 50px;
+      position: relative;
+      top: 300px;
+      left: 50px;
+    }
+    #progress-bar {
+      
+      height: 25px;
+      background-color: white;
+      border-radius: 50px;
+      position: relative;
+      animation-name: animate_progress;
+      animation-duration: 5s;
+      animation-timing-function: ease-in-out;
+      
+      
+    }
+    
+    @keyframes animate_progress {
+      0% {background-color:chartreuse; width: 0%;}
+      95% {background-color:chartreuse; width: 80%;}
+      90% {background-color:chartreuse; width: 90%;}
+      100% {background-color: chartreuse; width: 100%;}
+      
+    }
+   
+    
+  </style>
+</head>
+<body>
+  <h1>Loading...</h1>
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+  
+</body>
+</html>
